@@ -2,8 +2,10 @@ using DependencyInjection;
 using Entities.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -12,10 +14,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DataBaseContext>(options => options.UseInMemoryDatabase(databaseName: "DbExamen"));
+//builder.Services.AddDbContext<DataBaseContext>(options => options.UseInMemoryDatabase(databaseName: "DbExamen"));
+
+builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionDB")));
 
 DependencyInjector.RegisterServices(builder.Services);
 DependencyInjector.AddAutoMapper();
+
 
 var app = builder.Build();
 
