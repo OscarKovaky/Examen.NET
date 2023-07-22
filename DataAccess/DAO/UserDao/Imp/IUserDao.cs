@@ -1,4 +1,5 @@
-﻿using Dtos.ComercioDtos;
+﻿
+using Dtos;
 using Entities.View;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,5 @@ namespace DataAccess.DAO.UserDao.Imp
 
         Task<ResponseUserDto> LoginUser(RequestUserDto requestUserDto);
 
-        // eliminar un Usuario eliminado 
-
-        Task<bool> DeleteUser(int id);
-        // actualizar un Usuario
-
-        Task<ResponseUserDto> UpdateUser(RequestUserDto requestUserDto);
-
-        //obtener lista de ordenes usuario - articulo
-
-        Task<List<ArticuloTiendaViewModel>> GetArticulosUser();
     }
 }

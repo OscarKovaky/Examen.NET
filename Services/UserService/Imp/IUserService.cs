@@ -1,4 +1,4 @@
-﻿using Dtos.ComercioDtos;
+﻿using Dtos;
 using Entities.View;
 using System;
 using System.Collections.Generic;
@@ -17,15 +17,5 @@ namespace Services.UserService.Imp
 
         Task<ResponseUserDto> LoginUserService(RequestUserDto requestUserDto);
 
-        // eliminar un Usuario eliminado 
-
-        Task<bool> DeleteUserService(int id);
-        // actualizar un Usuario
-
-        Task<ResponseUserDto> UpdateUserService(RequestUserDto requestUserDto);
-
-        //obtener lista de ordenes usuario - articulo
-
-        Task<List<ArticuloTiendaViewModel>> GetArticulosUserService();
     }
 }

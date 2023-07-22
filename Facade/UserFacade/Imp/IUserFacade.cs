@@ -1,4 +1,4 @@
-﻿using Dtos.ComercioDtos;
+﻿using Dtos;
 using Entities.View;
 using System;
 using System.Collections.Generic;
@@ -17,15 +17,5 @@ namespace Facade.UserFacade.Imp
 
         Task<ResponseUserDto> LoginUserFacade(RequestUserDto requestUserDto);
 
-        // eliminar un Usuario eliminado 
-
-        Task<bool> DeleteUserFacade(int id);
-        // actualizar un Usuario
-
-        Task<ResponseUserDto> UpdateUserFacade(RequestUserDto requestUserDto);
-
-        //obtener lista de ordenes usuario - articulo
-
-        Task<List<ArticuloTiendaViewModel>> GetArticulosUserFacade();
     }
 }

@@ -1,15 +1,18 @@
 ﻿using AutoMapper;
 using DataAccess.DAO;
-using DataAccess.DAO.ComercioDao;
-using DataAccess.DAO.ComercioDao.ComercioImp;
+using DataAccess.DAO.Diectorio;
+using DataAccess.DAO.Diectorio.Imp;
 using DataAccess.DAO.UserDao;
 using DataAccess.DAO.UserDao.Imp;
+using DataAccess.DAO.Ventas;
+using DataAccess.DAO.Ventas.Imp;
 using Entities.Context;
 using Entities.Models;
-using Facade.ComercioFacade;
-using Facade.ComercioFacade.Imp;
+using Facade.DirectorioFacade;
 using Facade.UserFacade;
 using Facade.UserFacade.Imp;
+using Facade.VentasFacade;
+using Facade.VentasFacade.Imp;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +21,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Security.Imp;
 using Security.TokenService;
-using Services.ComercioService;
-using Services.ComercioService.Imp;
+using Services.DirectorioService;
+using Services.DirentorioService.Imp;
 using Services.Mapping;
 using Services.UserService;
 using Services.UserService.Imp;
+using Services.VentasService;
+using Services.VentasService.Imp;
 using System.Text;
 
 namespace DependencyInjection
@@ -35,13 +40,20 @@ namespace DependencyInjection
         public static IServiceCollection RegisterServices(IServiceCollection services)
         {
             Services = services;
-            Services.AddTransient<IArticuloFacade, ArticuloFacade>();
-            Services.AddTransient<IArticuloService, ArticuloService>();
-            Services.AddTransient<IArticuloDao, ArticuloDao>();
+
 
             Services.AddTransient<IUserFacade, UserFacade>();
             Services.AddTransient<IUserService, UserService>();
             Services.AddTransient<IUserDao, UserDao>();
+
+            Services.AddTransient<IVentas, VentasDao>();
+            Services.AddTransient<IVentasService, VentasService>();
+            Services.AddTransient<IUsuarioVentasFacade, UsuarioVentasFacade>();
+
+            Services.AddTransient<IDirectorio, DirectorioDao>();
+            Services.AddTransient<IDirectorioService, UsuarioDirectorioService>();
+            Services.AddTransient<IDirectorioFacadeUser, DirectorioFacadeUser>();
+
 
             Services.AddTransient<IJwtGenerador,JwtGenerador>();
             Services.AddTransient<IUsuarioSesion, ComercioToken>();

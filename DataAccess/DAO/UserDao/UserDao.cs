@@ -1,6 +1,6 @@
 ﻿using DataAccess.DAO.UserDao.Imp;
 using DataAccess.Utils;
-using Dtos.ComercioDtos;
+using Dtos;
 using Entities.Context;
 using Entities.Models;
 using Entities.View;
@@ -85,8 +85,6 @@ namespace DataAccess.DAO.UserDao
             var usuario = new Cliente
             {
                 Nombre = requestUserDto.Nombre,
-                Apellidos = requestUserDto.Apellidos,
-                Direccion = requestUserDto.Direccion,
                 Email = requestUserDto.Email,
                 UserName = requestUserDto.Username,
               

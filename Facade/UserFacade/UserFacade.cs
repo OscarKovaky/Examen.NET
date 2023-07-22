@@ -1,4 +1,4 @@
-﻿using Dtos.ComercioDtos;
+﻿using Dtos;
 using Entities.View;
 using Facade.UserFacade.Imp;
 using Services.UserService.Imp;
@@ -18,15 +18,6 @@ namespace Facade.UserFacade
         {
             _userService = userService;
         }
-        public Task<bool> DeleteUserFacade(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<ArticuloTiendaViewModel>> GetArticulosUserFacade()
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<ResponseUserDto> LoginUserFacade(RequestUserDto requestUserDto)
         {
@@ -38,9 +29,5 @@ namespace Facade.UserFacade
             return _userService.RegisterUserService(requestUserDto);
         }
 
-        public Task<ResponseUserDto> UpdateUserFacade(RequestUserDto requestUserDto)
-        {
-            return _userService.UpdateUserService(requestUserDto);
-        }
     }
 }

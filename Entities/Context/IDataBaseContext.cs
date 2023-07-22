@@ -12,10 +12,9 @@ namespace Entities.Context
 {
     public interface IDataBaseContext 
     {
-        DbSet<Articulo> Articulos { get; set; }
+        DbSet<Persona> Personas { get; set; }
 
-        DbSet<Tienda> Tiendas { get; set; }
+        DbSet<Factura> Facturas { get; set; }
 
-        DbSet <ArticuloTienda> ArticuloTienda { get; set; }
     }
 }

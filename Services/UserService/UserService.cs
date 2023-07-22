@@ -1,5 +1,5 @@
 ﻿using DataAccess.DAO.UserDao.Imp;
-using Dtos.ComercioDtos;
+using Dtos;
 using Entities.View;
 using Services.UserService.Imp;
 using System;
@@ -18,15 +18,7 @@ namespace Services.UserService
         {
             _userDao = userDao;
         }
-        public Task<bool> DeleteUserService(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<List<ArticuloTiendaViewModel>> GetArticulosUserService()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<ResponseUserDto> LoginUserService(RequestUserDto requestUserDto)
         {
@@ -38,9 +30,5 @@ namespace Services.UserService
             return await _userDao.RegisterUser(requestUserDto);
         }
 
-        public async Task<ResponseUserDto> UpdateUserService(RequestUserDto requestUserDto)
-        {
-            return await _userDao.UpdateUser(requestUserDto);
-        }
     }
 }
