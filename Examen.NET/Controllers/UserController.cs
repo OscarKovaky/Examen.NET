@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Examen.NET.Controllers
 {
-    [Route("")]
+    [Route("User")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -34,30 +34,29 @@ namespace Examen.NET.Controllers
             return await _logicFacade.LoginUserFacade(requestUserDto);
         }
 
-        [Route("crearUsuarioDirectorio")]
-        [HttpPost]
-        public async Task<int> crearUsuarioDirectorio([FromQuery] RequestDirectorioDto requestUser)
+
+        [HttpPost("")]
+        public async Task<int> CrearUsuarioDirectorio(RequestDirectorioDto requestUser)
         {
             return await _directorioFacadeUser.StorePersona(requestUser);
         }
 
-        [Route("BorrarUsuarioDirectorio")]
-        [HttpDelete]
-        public async Task<bool> BorrarUsuarioDirectorio([FromQuery] string identificacion)
+        [HttpDelete("{identificacion}")]
+        public async Task<bool> BorrarUsuarioDirectorio(string identificacion)
         {
             return await _directorioFacadeUser.DeletePersonasByIdentificacion(identificacion);
         }
 
-        [Route("obtenerListaDirectorio")]
+
         [HttpGet]
-        public async Task<List<PersonaDto>> obtenerListaDirectorio()
+        public async Task<List<PersonaDto>> ObtenerListaDirectorio()
         {
             return await _directorioFacadeUser.FindPersonas();
         }
 
-        [Route("obtenerIdentificacion")]
-        [HttpGet]
-        public async Task<PersonaDto> obtenerIdentificacion([FromQuery] string identificacion)
+
+        [HttpGet("{identificacion}")]
+        public async Task<PersonaDto> ObtenerIdentificacion(string identificacion)
         {
             return await _directorioFacadeUser.FindPersonaByIdentificacion(identificacion);
         }

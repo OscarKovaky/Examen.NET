@@ -80,6 +80,17 @@ namespace DependencyInjection
                 };
             });
 
+            // Configurar CORS con una política personalizada
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MiPoliticaCORS", builder =>
+                {
+                    builder.AllowAnyOrigin() // Permitir solicitudes desde cualquier origen
+                           .AllowAnyMethod() // Permitir cualquier método HTTP (GET, POST, etc.)
+                           .AllowAnyHeader(); // Permitir cualquier encabezado en la solicitud
+                });
+            });
+
             return Services;
         }
 

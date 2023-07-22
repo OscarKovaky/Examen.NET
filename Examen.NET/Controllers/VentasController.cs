@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Examen.NET.Controllers
 {
-    [Route("")]
+    [Route("Factura")]
     [ApiController]
     public class VentasController : ControllerBase
     {
@@ -15,13 +15,13 @@ namespace Examen.NET.Controllers
             _usuarioVentasFacade = usuarioVentasFacade;
         }
 
-        [HttpGet("{id}/listVentas")]
+        [HttpGet("{id}")]
         public async Task<List<FacturaDto>> Get(int id)
         {
             return await _usuarioVentasFacade.FindFacturasByPersonaFacade(id);
         }
 
-        [HttpPost("crearFactura")]
+        [HttpPost("")]
         public async Task<int> Post(RequestFacturaDto requestFacturaDto)
         {
             return await _usuarioVentasFacade.StoreFacturaFacade(requestFacturaDto);

@@ -56,7 +56,17 @@ namespace DataAccess.DAO.Diectorio
 
         public async Task<int> StorePersona(RequestDirectorioDto requestDirectorioDto)
         {
-  
+            if (string.IsNullOrEmpty(requestDirectorioDto.Nombre)  ||
+                string.IsNullOrEmpty(requestDirectorioDto.ApellidoMaterno) ||
+                string.IsNullOrEmpty(requestDirectorioDto.ApellidoPaterno) ||
+                string.IsNullOrEmpty(requestDirectorioDto.Identificacion)
+                )
+            {
+                // La cadena está vacía o es nula campo requerido
+
+                throw new ManejadorExcepcion(HttpStatusCode.InternalServerError, new { mensaje = "Existe un campo Vacio" });
+            }
+
             var Persona = new Persona()
             {
                 Nombre = requestDirectorioDto.Nombre,

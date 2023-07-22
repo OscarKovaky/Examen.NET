@@ -24,6 +24,9 @@ DependencyInjector.AddAutoMapper();
 
 var app = builder.Build();
 
+// Habilitar CORS con la política definida anteriormente
+app.UseCors("MiPoliticaCORS");
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
