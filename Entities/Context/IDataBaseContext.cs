@@ -1,5 +1,6 @@
 ﻿
 using Entities.Models;
+using Entities.Models.View;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,9 +13,9 @@ namespace Entities.Context
 {
     public interface IDataBaseContext 
     {
-        DbSet<Persona> Personas { get; set; }
 
-        DbSet<Factura> Facturas { get; set; }
-
+        public DbSet<NXFCE100> NXFCE100s { get; set; }
+        public DbSet<NXFCE101> NXFCE101s { get; set; }
+        public DbSet<NXFCE102> NXFCE102s { get; set; }
     }
 }

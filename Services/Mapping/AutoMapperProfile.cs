@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Dtos;
+using Dtos.View;
 using Entities.Models;
+using Entities.Models.View;
 using Entities.View;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,11 @@ namespace Services.Mapping
     {
         public AutoMapperProfile() {
 
-            this.CreateMap<Factura, FacturaDto>();
-            this.CreateMap<FacturaDto, Factura>();
+            this.CreateMap<NXFCE100, NXFCE100ResponseDTO>();
+            this.CreateMap<NXFCE100ResponseDTO, NXFCE100>();
 
-            this.CreateMap<Persona, PersonaDto>();
-            this.CreateMap<PersonaDto, Persona>();
+            this.CreateMap<NXFCE102, NXFCE102ResponseDTO>();
+            this.CreateMap<NXFCE102ResponseDTO, NXFCE102>();
         }
     }
 }
